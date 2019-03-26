@@ -6,7 +6,7 @@ highlighter:      pygments
 permalink:        pretty
 
 # Setup
-title:            Voice conversion demo
+title:            '<h3>Voice conversion demo</h3>'
 tagline:          'A Jekyll theme'
 description:      'This is a demo page for <a href="http://jekyllrb.com" target="_blank">Voice Conversion</a>.'
 url:              'https://lhppom.github.io/VoiceConversion/'
