@@ -8,7 +8,7 @@ title: What's Jekyll?
   > Jekyll is a simple, blog aware, static site generator. It takes a template directory [...] and spits out a complete, static website suitable for serving with Apache or your favorite web server. This is also the engine behind GitHub Pages, which you can use to host your project’s page or blog right here from GitHub.
 
 
-<audio src="{{ site.baseurl }}/audio/M-M/p272_007_mel.wav" controls="controls"></audio>
+<audio src="https://raw.githubusercontent.com/lhppom/VoiceConversion/master/VoiceConversion/audio/M-M/p272_007_mel.wav" controls="controls"></audio>
 
 It's an immensely useful tool and one we encourage you to use here with Hyde.
 
