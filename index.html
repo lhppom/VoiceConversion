@@ -15,7 +15,7 @@
 
   <title>
     
-      Aäron van den Oord &middot; 
+      lhppom &middot; 
     
   </title>
 
@@ -55,88 +55,57 @@
     <div class="sidebar-about">
       <h2>
        <a href="/VoiceConversion/">
-        <span style="color:rgb(250, 250, 250)">Aäron van den Oord</span>
+        <span style="color:rgb(250, 250, 250)">lhppom</span>
        </a>
       </h2>
-      <p class="lead">Research Scientist @ Google DeepMind</p>
+      <p class="lead">Master student @ HIT</p>
     </div>
-
-    <nav class="sidebar-nav">
-      <a class="sidebar-nav-item" href="https://twitter.com/avdnoord" target="_blank"><i class="fa fa-twitter fa-fw">&nbsp;&nbsp;</i>Twitter</a>  
-      <a class="sidebar-nav-item" href="https://arxiv.org/find/cs/1/au:+Oord_A/0/1/0/all/0/1" target="_blank"><i class="ai ai-arxiv ai-fw">&nbsp;</i>Arxiv</a>  
-      <a class="sidebar-nav-item" href="https://scholar.google.co.uk/citations?user=TqUN-LwAAAAJ" target="_blank"><i class="ai ai-google-scholar ai-fw">&nbsp;</i>Google&nbsp;Scholar</a>
-    </nav>
 
   </div>
 </div>
 
 
     <div class="content container">
-      <h1 id="neural-discrete-representation-learning">Neural Discrete Representation Learning</h1>
+      <h1 id="neural-discrete-representation-learning">Non-parallel Voice conversion</h1>
 
-<p>All samples on this page are from a VQ-VAE learned in an unsupervised way from unaligned data. More details in the <a href="https://arxiv.org/abs/1711.00937" target="_blank"><span style="color:rgb(223, 10, 10)">paper</span></a>.</p>
+<p>All samples on this page are from a StarGAN-based learned in an semi-supervised way from unaligned data. </p>
 
-<h2 id="reconstructions">Reconstructions</h2>
+<h2 id="reconstructions">Female-Female</h2>
+<p>Source</p>
+<audio src="/VoiceConversion/audio/pt1_orig1.wav" controls="controls"></audio>
+<audio src="/VoiceConversion/audio/pt1_recon1.wav" controls="controls"></audio>
+<p> </p>
+<p>Target </p>
+<audio src="/VoiceConversion/audio/pt1_orig2.wav" controls="controls"></audio>
+<audio src="/VoiceConversion/audio/pt1_recon2.wav" controls="controls"></audio>
+<p> </p>
+<p>Raw audio</p>
+<audio src="/VoiceConversion/audio/pt1_orig3.wav" controls="controls"></audio>
+<audio src="/VoiceConversion/audio/pt1_recon3.wav" controls="controls"></audio>
+<p> </p>
+<p>Converted audio</p>
+<audio src="/VoiceConversion/audio/pt1_orig3.wav" controls="controls"></audio>
+<audio src="/VoiceConversion/audio/pt1_recon3.wav" controls="controls"></audio>
 
-<p>These samples are reconstructions from a VQ-VAE that compresses the audio input over 64x times into discrete latent codes (see figure below). Both the VQ-VAE and latent space are trained end-to-end without relying on phonemes or information other than the waveform itself. Although the reconstructed waveforms are very different in shape from the originals, they sound very similar.</p>
+<h2 id="reconstructions">Female-Female</h2>
 
-<blockquote>
-  <p><img src="/VoiceConversion/images/reconstruct.jpg" width="85%" height="85%" style="margin-bottom: 40px" />
-Originals and reconstructions</p>
+<blockquote>  
+  <p>Source</p>
   <audio src="/VoiceConversion/audio/pt1_orig1.wav" controls="controls"></audio>
   <audio src="/VoiceConversion/audio/pt1_recon1.wav" controls="controls"></audio>
   <p> </p>
+  <p>Target </p>
   <audio src="/VoiceConversion/audio/pt1_orig2.wav" controls="controls"></audio>
   <audio src="/VoiceConversion/audio/pt1_recon2.wav" controls="controls"></audio>
   <p> </p>
+  <p>Raw audio</p>
+  <audio src="/VoiceConversion/audio/pt1_orig3.wav" controls="controls"></audio>
+  <audio src="/VoiceConversion/audio/pt1_recon3.wav" controls="controls"></audio>
+  <p> </p>
+  <p>Converted audio</p>
   <audio src="/VoiceConversion/audio/pt1_orig3.wav" controls="controls"></audio>
   <audio src="/VoiceConversion/audio/pt1_recon3.wav" controls="controls"></audio>
 </blockquote>
-
-<h2 id="samples-from-prior">Samples from Prior</h2>
-
-<p>The discrete latent space captures the important aspects of the audio, such as the content of the speech, in a very compressed symbolic representation. Because of this we can now train another WaveNet on top of these latents which can focus on modeling the long-range temporal dependencies without having to spend too much capacity on imperceptible details. With enough data one could even learn a language model directly from raw audio.</p>
-
-<blockquote>
-  <p><img src="/VoiceConversion/images/sample_prior.jpg" width="85%" height="85%" style="margin-bottom: 40px" /></p>
-
-  <p>Samples</p>
-  <audio src="/VoiceConversion/audio/pt2_sample1.wav" controls="controls"></audio>
-  <audio src="/VoiceConversion/audio/pt2_sample2.wav" controls="controls"></audio>
-  <audio src="/VoiceConversion/audio/pt2_sample3.wav" controls="controls"></audio>
-</blockquote>
-
-<h2 id="voice-style-transfer">Voice Style-Transfer</h2>
-
-<p>When we condition the decoder in the VQ-VAE on the speaker-id, we can extract latent codes from a speech fragment and <strong>reconstruct with a different speaker-id</strong>.</p>
-
-<p>The VQ-VAE never saw any aligned data during training and was always optimizing the reconstruction of the orginal waveform. These experiments suggest that the encoder has factored out speaker-specific information in the encoded representations, as they have same meaning across different voice characteristics. This behaviour arises naturally because the decoder gets the speaker-id for free so the limited bandwith of latent codes gets used for other speaker-independent, phonetic information.</p>
-
-<p>In the <a href="https://arxiv.org/abs/1711.00937" target="_blank"><span style="color:rgb(223, 10, 10)">paper</span></a> we show that the latent codes discovered by the VQ-VAE are actually very closely related to the human-designed alphabet of phonemes.</p>
-
-<blockquote>
-  <p><img src="/VoiceConversion/images/style_transfer.jpg" width="85%" height="85%" style="margin-bottom: 40px" /></p>
-
-  <p>Originals and reconstructions with different speaker-id</p>
-  <audio src="/VoiceConversion/audio/pt3_source1.wav" controls="controls"></audio>
-  <audio src="/VoiceConversion/audio/pt3_transfer1.wav" controls="controls"></audio>
-  <p> </p>
-  <audio src="/VoiceConversion/audio/pt3_source2.wav" controls="controls"></audio>
-  <audio src="/VoiceConversion/audio/pt3_transfer2.wav" controls="controls"></audio>
-  <p> </p>
-  <audio src="/VoiceConversion/audio/pt3_source3.wav" controls="controls"></audio>
-  <audio src="/VoiceConversion/audio/pt3_transfer3.wav" controls="controls"></audio>
-  <p> </p>
-  <audio src="/VoiceConversion/audio/pt3_source4.wav" controls="controls"></audio>
-  <audio src="/VoiceConversion/audio/pt3_transfer4.wav" controls="controls"></audio>
-  <p>Bonus!</p>
-  <audio src="/VoiceConversion/audio/pt3_source5.wav" controls="controls"></audio>
-  <audio src="/VoiceConversion/audio/pt3_transfer5.wav" controls="controls"></audio>
-  <p> </p>
-  <audio src="/VoiceConversion/audio/pt3_source6.wav" controls="controls"></audio>
-  <audio src="/VoiceConversion/audio/pt3_transfer6.wav" controls="controls"></audio>
-</blockquote>
-
 
     </div>
 
