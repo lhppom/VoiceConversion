@@ -6,14 +6,14 @@ highlighter:      pygments
 permalink:        pretty
 
 # Setup
-title:            Hyde
+title:            Voice conversion demo
 tagline:          'A Jekyll theme'
-description:      'A brazen two-column <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that pairs a prominent sidebar with uncomplicated content. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
+description:      'This is a demo page for <a href="http://jekyllrb.com" target="_blank">Voice Conversion</a>.'
 url:              'https://lhppom.github.io/VoiceConversion/'
 baseurl:          /
 
 author:
-  name:           'Mark Otto'
+  name:           'lhppom'
   url:            'https://lhppom.github.io/VoiceConversion/'
 
 paginate:         5
